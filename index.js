@@ -5,6 +5,7 @@ while(i<7){
 document.getElementsByClassName("drum")[i].addEventListener("click",function (){
     var ml=this.innerHTML;
 sound(ml);
+clicked(ml)
      } );
     i++;
 }
@@ -12,7 +13,7 @@ sound(ml);
 document.addEventListener("keydown",function(event){
 
 sound(event.key);
-
+clicked(event.key);
 
 })
 
@@ -52,7 +53,10 @@ function sound(key){
     }
 }
 function clicked(keyy){
-   var bt= document.querySelector("."+keyy){
-        bt.setAttribute("class",".pressed");
-    }
+   let bt= document.querySelector("."+keyy);
+        bt.classList.add("pressed");
+        setTimeout(function(){
+            bt.classList.remove("pressed");
+        },100);
+    
 }
